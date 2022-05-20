@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 515254015}
   - component: {fileID: 515254017}
   - component: {fileID: 515254018}
+  - component: {fileID: 515254019}
   m_Layer: 0
   m_Name: Doom player
   m_TagString: Untagged
@@ -307,6 +308,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0074607, y: 0.3732859}
   m_EdgeRadius: 0
+--- !u!95 &515254019
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515254013}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 71cdede94e7ec3246b79b233f23583fc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +614,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1909017742}
   - component: {fileID: 1909017743}
-  - component: {fileID: 1909017744}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -668,26 +688,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1909017744
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1909017741}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d8f7b32b429db6a40bc85fdbc77f0384, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1966148817
 GameObject:
   m_ObjectHideFlags: 0
