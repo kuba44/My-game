@@ -32,6 +32,17 @@ public class PlayerController : MonoBehaviour
 
         float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
 
-        weaponArm.rotation = Quaternion.Euler(0, 0, angle);
+        if (mousePosition.x < screenPoint.x)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+            weaponArm.transform.localScale = new Vector3(-1f, -1f, 1f);
+        }
+        else
+        {
+            transform.localScale = Vector3.one;
+            weaponArm.transform.localScale = Vector3.one;
+        }
+
+        weaponArm.rotation = Quaternion.Euler(0 , 0, angle);
     }
 }
