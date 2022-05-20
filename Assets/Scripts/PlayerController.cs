@@ -9,12 +9,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform weaponArm;
     private Camera mainCamera;
     private Vector2 movementInput;
+    private Animator playerAnimator;
 
 
     // Start is called before the first frame update
     void Start()
     {
         mainCamera = Camera.main;
+
+        playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -44,5 +47,14 @@ public class PlayerController : MonoBehaviour
         }
 
         weaponArm.rotation = Quaternion.Euler(0 , 0, angle);
+
+        if(movementInput != Vector2.zero)
+        {
+            playerAnimator.SetBool("isWalking", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("isWalking", false);
+        }
     }
 }
