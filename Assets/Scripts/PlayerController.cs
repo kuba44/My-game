@@ -5,11 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] Rigidbody2D playerRigidbody;
-    [SerializeField] int movementSpeed;
-    [SerializeField] Transform weaponArm;
-    private Camera mainCamera;
+    [SerializeField] int movementSpeed;  
     private Vector2 movementInput;
+
+    private Camera mainCamera;
     private Animator playerAnimator;
+
+    [SerializeField] Transform weaponArm;
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform firePoint;
 
 
     // Start is called before the first frame update
@@ -57,6 +61,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             playerAnimator.SetBool("isWalking", false);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(bullet, firePoint.position, firePoint.rotation);
         }
     }
 }

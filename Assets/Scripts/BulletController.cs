@@ -17,7 +17,7 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bulletRigidbody.velocity = transform.right * bulletSpeed;     
+        bulletRigidbody.velocity = transform.right * bulletSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
