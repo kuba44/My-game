@@ -452,10 +452,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 871200256615525891}
-  movementSpeed: 10
+  movementSpeed: 7
   weaponArm: {fileID: 871200254811899344}
   bullet: {fileID: 1498881042951040886, guid: 5e577a5b55e721340ac34bc916a935b3, type: 3}
   firePoint: {fileID: 871200255864914082}
+  timeBetweenShots: 0.5
 --- !u!50 &871200256615525891
 Rigidbody2D:
   serializedVersion: 4
