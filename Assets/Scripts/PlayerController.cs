@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
         movementInput.x = Input.GetAxisRaw("Horizontal");
         movementInput.y = Input.GetAxisRaw("Vertical");
 
+        movementInput.Normalize();
+
         playerRigidbody.velocity = movementInput * movementSpeed;
 
         Vector3 mousePosition = Input.mousePosition;
