@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 871200254751622540}
   - component: {fileID: 871200254751622541}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 871200254811899344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapons arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 871200254905153047}
   - component: {fileID: 871200254905153044}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 871200254983794175}
   - component: {fileID: 871200254983794172}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 871200255864914082}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fire Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 871200256083392805}
   - component: {fileID: 871200256083392810}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,8 +412,9 @@ GameObject:
   - component: {fileID: 871200256615526397}
   - component: {fileID: 871200256615525891}
   - component: {fileID: 871200256615525888}
+  - component: {fileID: 2020496248}
   - component: {fileID: 871200256615525889}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Doom player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,6 +504,32 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1.0074607, y: 0.3732859}
+  m_EdgeRadius: 0
+--- !u!61 &2020496248
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871200256615526399}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.055956542, y: -0.015700668}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.007461, y: 1.9563024}
   m_EdgeRadius: 0
 --- !u!95 &871200256615525889
 Animator:

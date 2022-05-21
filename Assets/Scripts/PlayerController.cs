@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] Rigidbody2D playerRigidbody;
-    [SerializeField] int movementSpeed = 7;  
+    [SerializeField] float movementSpeed = 8.25f;  
     private Vector2 movementInput;
 
     private Camera mainCamera;
