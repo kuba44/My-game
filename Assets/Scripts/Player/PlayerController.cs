@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] Rigidbody2D playerRigidbody;
-    [SerializeField] float movementSpeed = 8.25f;  
+    [SerializeField] float movementSpeed;  
     private Vector2 movementInput;
 
     private Camera mainCamera;
@@ -15,10 +15,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] Transform firePoint;
 
-    [SerializeField] float timeBetweenAutomaticShots = 0.5f;
+    [SerializeField] float timeBetweenAutomaticShots;
     private float automaticShotCounter = 0;
-    [SerializeField] float timeBetweenNormalShots = 0.1f;
-    private float normalShotCounter;
+    [SerializeField] float timeBetweenNormalShots;
+    private float normalShotCounter = 0;
 
     private float temps;
     private bool click;

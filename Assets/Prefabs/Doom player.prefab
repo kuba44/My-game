@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454544471
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1178345647, guid: 5f533613bbecc90419ce0fcec509dd51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -188,7 +188,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454544471
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 80b59bf4ede57b541944facb06187ed6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -272,7 +272,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454544471
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 7afcde1271995da43be8b3818a5fe58d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -387,7 +387,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1454544471
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f85af49886bcf534da77c6631158bf5a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 871200256615525891}
-  movementSpeed: 7
+  movementSpeed: 8.25
   weaponArm: {fileID: 871200254811899344}
   bullet: {fileID: 1498881042951040886, guid: 5e577a5b55e721340ac34bc916a935b3, type: 3}
   firePoint: {fileID: 871200255864914082}
