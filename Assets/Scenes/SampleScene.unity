@@ -450,6 +450,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 871200256615526397, guid: a20b33135d678364ea081df40909a51d, type: 3}
+      propertyPath: timeBetweenShots
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 871200256615526399, guid: a20b33135d678364ea081df40909a51d, type: 3}
       propertyPath: m_Name
       value: Doom player

@@ -7,11 +7,12 @@ public class BulletController : MonoBehaviour
 
     [SerializeField] float bulletSpeed = 7.5f;
     private Rigidbody2D bulletRigidbody;
+    [SerializeField] GameObject bulletEffect;
 
     // Start is called before the first frame update
     void Start()
     {
-        bulletRigidbody =  GetComponent<Rigidbody2D>(); 
+        bulletRigidbody = GetComponent<Rigidbody2D>(); 
     }
 
     // Update is called once per frame
@@ -22,6 +23,7 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Instantiate(bulletEffect, gameObject.transform.position, gameObject.transform.rotation);
         Destroy(gameObject);
     }
 }
