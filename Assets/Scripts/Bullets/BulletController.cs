@@ -9,6 +9,8 @@ public class BulletController : MonoBehaviour
     private Rigidbody2D bulletRigidbody;
     [SerializeField] GameObject bulletEffect;
 
+    [SerializeField] int damageAmount;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,12 @@ public class BulletController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Instantiate(bulletEffect, gameObject.transform.position, gameObject.transform.rotation);
+
+        if(collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<EnemyController>().DamageEnemy(damageAmount);
+        }
+
         Destroy(gameObject);
     }
 }

@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour
 
     private Animator enemyAnimator;
 
+    [SerializeField] int enemyHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +64,17 @@ public class EnemyController : MonoBehaviour
         else
         {
             transform.localScale = Vector3.one;
+        }
+
+    }
+
+    public void DamageEnemy(int damageTaken)
+    {
+        enemyHealth -= damageTaken;
+
+        if(enemyHealth <= 0)
+        {
+            Destroy(gameObject);
         }
 
     }

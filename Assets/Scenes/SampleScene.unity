@@ -583,7 +583,7 @@ GameObject:
   - component: {fileID: 1974440275}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -650,6 +650,7 @@ MonoBehaviour:
   enemySpeed: 5
   playerChaseRange: 4.5
   playerDetectionRange: 3
+  enemyHealth: 100
 --- !u!4 &1974440273
 Transform:
   m_ObjectHideFlags: 0
@@ -726,11 +727,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 871200256615526396, guid: a20b33135d678364ea081df40909a51d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.12699997
+      value: 7.31
       objectReference: {fileID: 0}
     - target: {fileID: 871200256615526396, guid: a20b33135d678364ea081df40909a51d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.319
+      value: -0.48
       objectReference: {fileID: 0}
     - target: {fileID: 871200256615526396, guid: a20b33135d678364ea081df40909a51d, type: 3}
       propertyPath: m_LocalPosition.z
