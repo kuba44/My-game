@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28285499}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -645,8 +645,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1eded9625df234ca02b07c3c8d55af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyRigidbody: {fileID: 0}
-  playerChaseRange: 5
+  enemySpeed: 5
+  enemyRigidbody: {fileID: 1974440270}
+  playerChaseRange: 4.5
+  playerDetectionRange: 3
 --- !u!4 &1974440273
 Transform:
   m_ObjectHideFlags: 0
