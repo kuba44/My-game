@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] float enemySpeed;
-    [SerializeField] Rigidbody2D enemyRigidbody;
+    private Rigidbody2D enemyRigidbody;
 
     [SerializeField] float playerChaseRange;
     [SerializeField] float playerDetectionRange;
@@ -15,9 +15,13 @@ public class EnemyController : MonoBehaviour
 
     private bool isChasing = false;
 
+    private Animator enemyAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
+        enemyAnimator = GetComponent<Animator>();
+        enemyRigidbody = GetComponent<Rigidbody2D>();
         playerToChase = FindObjectOfType<PlayerController>().transform;
     }
 
@@ -41,6 +45,24 @@ public class EnemyController : MonoBehaviour
 
         directionToMove.Normalize();
         enemyRigidbody.velocity = directionToMove * enemySpeed;
+
+        if(directionToMove != Vector3.zero)
+        {
+            enemyAnimator.SetBool("isWalking", true);
+        }
+        else
+        {
+            enemyAnimator.SetBool("isWalking", false);
+        }
+
+        if(playerToChase.position.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else
+        {
+            transform.localScale = Vector3.one;
+        }
 
     }
 
