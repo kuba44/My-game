@@ -15,9 +15,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] Transform firePoint;
 
-    [SerializeField] float timeBetweenShots = 0.5f;
-    private float shotCounter = 0;
+    [SerializeField] float timeBetweenAutomaticShots = 0.5f;
+    private float automaticShotCounter = 0;
+    [SerializeField] float timeBetweenNormalShots = 0.1f;
+    private float normalShotCounter;
 
+    private float temps;
+    private bool click;
 
     // Start is called before the first frame update
     void Start()
@@ -66,20 +70,38 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool("isWalking", false);
         }
 
+        normalShotCounter -= Time.deltaTime;
+
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(bullet, firePoint.position, firePoint.rotation);
+            temps = Time.time;
+            click = true;
         }
 
-        if (Input.GetMouseButton(0))
+        if (click && (Time.time - temps) > 0.2)
         {
-            shotCounter -= Time.deltaTime;
+            automaticShotCounter -= Time.deltaTime;
 
-            if(shotCounter <= 0)
+            if (automaticShotCounter <= 0)
             {
-                Instantiate(bullet, firePoint.position, firePoint.rotation);    
-                shotCounter = timeBetweenShots;
+                Instantiate(bullet, firePoint.position, firePoint.rotation);
+                automaticShotCounter = timeBetweenAutomaticShots;
+            }
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            click = false;
+
+            if ((Time.time - temps) < 0.2)
+            {
+                if (normalShotCounter <= 0)
+                {
+                    Instantiate(bullet, firePoint.position, firePoint.rotation);
+                    normalShotCounter = timeBetweenNormalShots;
+                }
             }
         }
     }
+
 }
