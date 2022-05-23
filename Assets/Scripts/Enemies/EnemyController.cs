@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     private bool isChasing = false;
 
     private Animator enemyAnimator;
+    [SerializeField] GameObject bloodSplatter;
 
     [SerializeField] int enemyHealth;
 
@@ -74,6 +75,7 @@ public class EnemyController : MonoBehaviour
 
         if(enemyHealth <= 0)
         {
+            Instantiate(bloodSplatter, transform.position, transform.rotation);
             Destroy(gameObject);
         }
 

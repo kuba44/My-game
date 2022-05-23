@@ -11,6 +11,8 @@ public class BulletController : MonoBehaviour
 
     [SerializeField] int damageAmount;
 
+    [SerializeField] GameObject[] damageEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,11 +27,15 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Instantiate(bulletEffect, gameObject.transform.position, gameObject.transform.rotation);
-
         if(collision.CompareTag("Enemy"))
         {
+            int rand = Random.Range(0, damageEffect.Length);
             collision.GetComponent<EnemyController>().DamageEnemy(damageAmount);
+            Instantiate(damageEffect[rand], gameObject.transform.position, gameObject.transform.rotation);
+        }
+        else
+        {
+            Instantiate(bulletEffect, gameObject.transform.position, gameObject.transform.rotation);
         }
 
         Destroy(gameObject);

@@ -461,7 +461,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1872280729
 BoxCollider2D:
@@ -622,7 +622,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.24085328, y: -0.038847327}
+  m_Offset: {x: 0.13363749, y: -0.038847327}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -633,7 +633,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0155389, y: 2.1757786}
+  m_Size: {x: 0.8011073, y: 2.1757786}
   m_EdgeRadius: 0
 --- !u!114 &1974440272
 MonoBehaviour:
@@ -650,6 +650,7 @@ MonoBehaviour:
   enemySpeed: 5
   playerChaseRange: 4.5
   playerDetectionRange: 3
+  bloodSplatter: {fileID: 6060425443938122186, guid: becdb47034108d84886e52269fc626b7, type: 3}
   enemyHealth: 100
 --- !u!4 &1974440273
 Transform:
@@ -723,7 +724,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 871200256615526396, guid: a20b33135d678364ea081df40909a51d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 871200256615526396, guid: a20b33135d678364ea081df40909a51d, type: 3}
       propertyPath: m_LocalPosition.x

@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498881042951040886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.678, y: 0.036, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -103,6 +103,12 @@ MonoBehaviour:
   bulletSpeed: 7.5
   bulletEffect: {fileID: 5771383018905857875, guid: a7daacdd83cdd7d43a557dff49c244f0, type: 3}
   damageAmount: 10
+  damageEffect:
+  - {fileID: 3359505519873238219, guid: 9fc0f3ca363278147a3250728f063897, type: 3}
+  - {fileID: 5939023065199061047, guid: e192404789d1fae4892f17a0932285c9, type: 3}
+  - {fileID: 3894046866070328020, guid: 2088978ee04f8fb48ade252c4473d6ea, type: 3}
+  - {fileID: 3247322059233644607, guid: 0c0d0bf60b2d29b47a48bef5bffd9086, type: 3}
+  - {fileID: 2420568545206876953, guid: 233a8c741828ee544b776bc6d564b61c, type: 3}
 --- !u!50 &1498881042951040884
 Rigidbody2D:
   serializedVersion: 4
