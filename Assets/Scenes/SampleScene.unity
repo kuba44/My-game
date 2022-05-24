@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 28285500}
   - component: {fileID: 28285501}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 824033947}
   - component: {fileID: 824033948}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,6 +375,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1401050731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1401050732}
+  m_Layer: 7
+  m_Name: Fire position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1401050732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401050731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.33, y: 0.083, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1974440273}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1872280726
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +612,7 @@ GameObject:
   - component: {fileID: 1974440271}
   - component: {fileID: 1974440270}
   - component: {fileID: 1974440275}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -647,11 +678,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1eded9625df234ca02b07c3c8d55af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 5
+  shootingRange: 7.5
   playerChaseRange: 4.5
-  playerDetectionRange: 3
-  bloodSplatter: {fileID: 6060425443938122186, guid: becdb47034108d84886e52269fc626b7, type: 3}
+  playerDetectionRange: 2.75
+  enemySpeed: 2.75
+  timeBetweenShots: 1
   enemyHealth: 100
+  bloodSplatter: {fileID: 6060425443938122186, guid: becdb47034108d84886e52269fc626b7, type: 3}
+  enemyProjectile: {fileID: 8695101092235871253, guid: 5bc6ce1a2e91bee48a66e925c5a86807, type: 3}
+  firePosition: {fileID: 1401050732}
 --- !u!4 &1974440273
 Transform:
   m_ObjectHideFlags: 0
@@ -666,6 +701,7 @@ Transform:
   m_Children:
   - {fileID: 28285500}
   - {fileID: 824033947}
+  - {fileID: 1401050732}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

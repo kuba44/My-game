@@ -4,34 +4,93 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] float enemySpeed;
-    private Rigidbody2D enemyRigidbody;
-
+    //EnemyRanges
+    [SerializeField] float shootingRange;
     [SerializeField] float playerChaseRange;
     [SerializeField] float playerDetectionRange;
-    private Vector3 directionToMove;
 
+    //EnemyMovement
+    [SerializeField] float enemySpeed;
     private Transform playerToChase;
-
+    private Rigidbody2D enemyRigidbody;
+    private Vector3 directionToMove;
     private bool isChasing = false;
 
+    //EnemyAnimations
     private Animator enemyAnimator;
-    [SerializeField] GameObject bloodSplatter;
 
+    //EnemyShooting
+    [SerializeField] float timeBetweenShots;
+    private bool readyToShoot;
+
+    //DamageEnemy
     [SerializeField] int enemyHealth;
 
-    // Start is called before the first frame update
+    //objects
+    [SerializeField] GameObject bloodSplatter;
+    [SerializeField] GameObject enemyProjectile;
+    [SerializeField] Transform firePosition;
+
+
     void Start()
     {
         enemyAnimator = GetComponent<Animator>();
+
         enemyRigidbody = GetComponent<Rigidbody2D>();
+
         playerToChase = FindObjectOfType<PlayerController>().transform;
+
+        readyToShoot = true;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        if(Vector3.Distance(transform.position, playerToChase.position) < playerDetectionRange)
+        EnemyMovement();
+
+        EnemyAnimations();
+
+        EnemyTurnAround();
+
+        EnemyShooting();
+    }
+
+    private void EnemyShooting()
+    {
+        if (readyToShoot && Vector3.Distance(playerToChase.transform.position, transform.position) < shootingRange)
+        {
+            readyToShoot = false;
+            StartCoroutine(FireEnemyProjectile());
+        }
+    }
+
+    private void EnemyTurnAround()
+    {
+        if (playerToChase.position.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else
+        {
+            transform.localScale = Vector3.one;
+        }
+    }
+
+    private void EnemyAnimations()
+    {
+        if (directionToMove != Vector3.zero)
+        {
+            enemyAnimator.SetBool("isWalking", true);
+        }
+        else
+        {
+            enemyAnimator.SetBool("isWalking", false);
+        }
+    }
+
+    private void EnemyMovement()
+    {
+        if (Vector3.Distance(transform.position, playerToChase.position) < playerDetectionRange)
         {
             isChasing = true;
         }
@@ -48,25 +107,14 @@ public class EnemyController : MonoBehaviour
 
         directionToMove.Normalize();
         enemyRigidbody.velocity = directionToMove * enemySpeed;
+    }
 
-        if(directionToMove != Vector3.zero)
-        {
-            enemyAnimator.SetBool("isWalking", true);
-        }
-        else
-        {
-            enemyAnimator.SetBool("isWalking", false);
-        }
+    IEnumerator FireEnemyProjectile()
+    {
+        yield return new WaitForSeconds(timeBetweenShots);
 
-        if(playerToChase.position.x < transform.position.x)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
-        else
-        {
-            transform.localScale = Vector3.one;
-        }
-
+        Instantiate(enemyProjectile, firePosition.position, firePosition.rotation);
+        readyToShoot = true;
     }
 
     public void DamageEnemy(int damageTaken)
@@ -87,6 +135,8 @@ public class EnemyController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, playerChaseRange);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, playerDetectionRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, shootingRange);
     }
 
 }

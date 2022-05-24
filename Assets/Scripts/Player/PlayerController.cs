@@ -4,26 +4,29 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D playerRigidbody;
+    //PlayerMovement
     [SerializeField] float movementSpeed;  
     private Vector2 movementInput;
 
+    //PlayerAnimations
     private Camera mainCamera;
     private Animator playerAnimator;
 
-    [SerializeField] Transform weaponArm;
-    [SerializeField] GameObject bullet;
-    [SerializeField] Transform firePoint;
-
+    //PlayerShooting
     [SerializeField] float timeBetweenAutomaticShots;
     private float automaticShotCounter = 0;
     [SerializeField] float timeBetweenNormalShots;
     private float normalShotCounter = 0;
-
     private float temps;
     private bool click;
 
-    // Start is called before the first frame update
+    //objects
+    [SerializeField] Rigidbody2D playerRigidbody;
+    [SerializeField] Transform weaponArm;
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform firePoint;
+
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -31,16 +34,20 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        movementInput.x = Input.GetAxisRaw("Horizontal");
-        movementInput.y = Input.GetAxisRaw("Vertical");
+        PlayerMovement();
 
-        movementInput.Normalize();
+        PlayerGunAiming();
 
-        playerRigidbody.velocity = movementInput * movementSpeed;
+        PlayerAnimations();
 
+        PlayerShooting();
+    }
+
+    private void PlayerGunAiming()
+    {
         Vector3 mousePosition = Input.mousePosition;
         Vector3 screenPoint = mainCamera.WorldToScreenPoint(transform.localPosition);
 
@@ -59,9 +66,12 @@ public class PlayerController : MonoBehaviour
             weaponArm.transform.localScale = Vector3.one;
         }
 
-        weaponArm.rotation = Quaternion.Euler(0 , 0, angle);
+        weaponArm.rotation = Quaternion.Euler(0, 0, angle);
+    }
 
-        if(movementInput != Vector2.zero)
+    private void PlayerAnimations()
+    {
+        if (movementInput != Vector2.zero)
         {
             playerAnimator.SetBool("isWalking", true);
         }
@@ -69,7 +79,10 @@ public class PlayerController : MonoBehaviour
         {
             playerAnimator.SetBool("isWalking", false);
         }
+    }
 
+    private void PlayerShooting()
+    {
         normalShotCounter -= Time.deltaTime;
 
         if (Input.GetMouseButtonDown(0))
@@ -104,4 +117,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void PlayerMovement()
+    {
+        movementInput.x = Input.GetAxisRaw("Horizontal");
+        movementInput.y = Input.GetAxisRaw("Vertical");
+
+        movementInput.Normalize();
+
+        playerRigidbody.velocity = movementInput * movementSpeed;
+    }
 }

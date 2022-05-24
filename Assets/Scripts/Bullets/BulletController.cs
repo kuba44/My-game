@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-
+    //moving the bullet
     [SerializeField] float bulletSpeed = 7.5f;
     private Rigidbody2D bulletRigidbody;
-    [SerializeField] GameObject bulletEffect;
 
+    //damaging the enemies
     [SerializeField] int damageAmount;
 
+    //objects
+    [SerializeField] GameObject bulletEffect;
     [SerializeField] GameObject[] damageEffect;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         bulletRigidbody = GetComponent<Rigidbody2D>(); 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         bulletRigidbody.velocity = transform.right * bulletSpeed;
@@ -30,8 +32,14 @@ public class BulletController : MonoBehaviour
         if(collision.CompareTag("Enemy"))
         {
             int rand = Random.Range(0, damageEffect.Length);
+
             collision.GetComponent<EnemyController>().DamageEnemy(damageAmount);
+
             Instantiate(damageEffect[rand], gameObject.transform.position, gameObject.transform.rotation);
+        }
+        else if(collision.CompareTag("Enemy bullet"))
+        {
+            collision.GetComponent<EnemyProjectileController>().DamageBullet(damageAmount);
         }
         else
         {

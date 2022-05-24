@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7651963951271559344}
   - component: {fileID: 7906209237659805178}
   - component: {fileID: 5271534171245035187}
-  - component: {fileID: -6443490922755581469}
+  - component: {fileID: 6323711858696321736}
   m_Layer: 0
   m_Name: Bullet Impact effect Wall
   m_TagString: Untagged
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1588691013
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 442681937, guid: beca8d4ed47fc8848acc485ec56fa1b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -106,7 +106,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-6443490922755581469
+--- !u!114 &6323711858696321736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
