@@ -30,7 +30,11 @@ public class EnemyProjectileController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //deal damage to player
-            
+
+            Destroy(gameObject);
+        }
+        else if (collision.CompareTag("Background"))
+        {
             Destroy(gameObject);
         }
     }
