@@ -48,8 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a1a97566c1c8bb4b9eae8d3a4a925f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 2.5
-  damageTaken: 10
+  projectileSpeed: 3
   bulletHealth: 20
 --- !u!95 &8695101092235871243
 Animator:

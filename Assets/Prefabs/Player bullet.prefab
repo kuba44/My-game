@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300a970ae1d9b1745b74dcd1a3d846f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 7.5
-  bulletEffect: {fileID: 5771383018905857875, guid: a7daacdd83cdd7d43a557dff49c244f0, type: 3}
+  bulletSpeed: 7
   damageAmount: 10
+  bulletEffect: {fileID: 5771383018905857875, guid: a7daacdd83cdd7d43a557dff49c244f0, type: 3}
   damageEffect:
   - {fileID: 3359505519873238219, guid: 9fc0f3ca363278147a3250728f063897, type: 3}
   - {fileID: 5939023065199061047, guid: e192404789d1fae4892f17a0932285c9, type: 3}

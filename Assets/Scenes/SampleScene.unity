@@ -681,8 +681,8 @@ MonoBehaviour:
   shootingRange: 7.5
   playerChaseRange: 4.5
   playerDetectionRange: 2.75
-  enemySpeed: 2.75
-  timeBetweenShots: 1
+  enemySpeed: 3
+  timeBetweenShots: 2
   enemyHealth: 100
   bloodSplatter: {fileID: 6060425443938122186, guid: becdb47034108d84886e52269fc626b7, type: 3}
   enemyProjectile: {fileID: 8695101092235871253, guid: 5bc6ce1a2e91bee48a66e925c5a86807, type: 3}
