@@ -5,12 +5,19 @@ using UnityEngine;
 public class RoomManager : MonoBehaviour
 {
     [SerializeField] GameObject[] doorsToClose;
-    private bool closeDoorOnPlayerEnter = true;
+    [SerializeField] bool closeDoorOnPlayerEnter, openDoorsAfterEnemiesDeath;
+    [SerializeField] List<Collider2D> enemies = new List<Collider2D>();
+
+    private Collider2D roomCollider;
+    private ContactFilter2D contactFilter;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        roomCollider = GetComponent<Collider2D>();
+        contactFilter.SetLayerMask(LayerMask.GetMask("Enemy"));
+
+        roomCollider.OverlapCollider(contactFilter, enemies);
     }
 
     // Update is called once per frame
