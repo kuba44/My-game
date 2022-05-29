@@ -26,6 +26,8 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 0.5f;
 
+        UIManager.Instance.FadeImage();
+
         yield return new WaitForSecondsRealtime(timeToLoad);
 
         Time.timeScale = 1f;
