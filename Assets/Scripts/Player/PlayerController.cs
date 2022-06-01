@@ -7,6 +7,13 @@ public class PlayerController : MonoBehaviour
     //PlayerMovement
     [SerializeField] float movementSpeed;  
     private Vector2 movementInput;
+    private float currentMovementSpeed;
+
+    //PlayerDash
+    private bool canDash = true;
+    [SerializeField] float dashSpeed, 
+                           dashLength, 
+                           dashCooldown;
 
     //PlayerAnimations
     private Camera mainCamera;
@@ -19,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private float normalShotCounter = 0;
     private float temps;
     private bool click;
+    private bool canShoot = true;
 
     //objects
     [SerializeField] Rigidbody2D playerRigidbody;
@@ -32,6 +40,8 @@ public class PlayerController : MonoBehaviour
         mainCamera = Camera.main;
 
         playerAnimator = GetComponent<Animator>();
+
+        currentMovementSpeed = movementSpeed;
     }
 
 
@@ -44,6 +54,19 @@ public class PlayerController : MonoBehaviour
         PlayerAnimations();
 
         PlayerShooting();
+
+        PlayerDash();
+    }
+
+    private void PlayerDash()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && canDash)
+        {
+            playerAnimator.SetTrigger("Dash");
+
+            StartCoroutine(DashCooldown());
+            StartCoroutine(DashLength());
+        }
     }
 
     private void PlayerGunAiming()
@@ -83,6 +106,8 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerShooting()
     {
+        if (!canShoot) return;
+
         normalShotCounter -= Time.deltaTime;
 
         if (Input.GetMouseButtonDown(0))
@@ -124,6 +149,29 @@ public class PlayerController : MonoBehaviour
 
         movementInput.Normalize();
 
-        playerRigidbody.velocity = movementInput * movementSpeed;
+        playerRigidbody.velocity = movementInput * currentMovementSpeed;
     }
+
+    private IEnumerator DashLength()
+    {
+        currentMovementSpeed = dashSpeed;
+
+        canShoot = false;
+
+        yield return new WaitForSeconds(dashLength);
+
+        currentMovementSpeed = movementSpeed;
+
+        canShoot = true;
+    }
+
+    private IEnumerator DashCooldown()
+    {
+        canDash = false;
+
+        yield return new WaitForSeconds(dashCooldown);
+
+        canDash = true;
+    }
+
 }

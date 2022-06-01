@@ -453,6 +453,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 8
+  dashSpeed: 16
+  dashLength: 0.5
+  dashCooldown: 3
   timeBetweenAutomaticShots: 0.5
   timeBetweenNormalShots: 0.1
   playerRigidbody: {fileID: 871200256615525891}
