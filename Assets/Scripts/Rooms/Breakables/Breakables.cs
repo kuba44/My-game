@@ -30,20 +30,19 @@ public class Breakables : MonoBehaviour
         }
     }
 
-    public void SpawnBrokenPieces()
+    public void Destroy()
     {
         foreach ( GameObject piece in brokenPiece)
         {
-            float positionRandX = transform.position.x + Random.Range( -0.5f, 0.5f );
-            float positionRandY = transform.position.y + Random.Range( -0.25f, 0.25f );
-            float rotationRand = Random.Range( -30, 30);
+            float rotationRand = Random.Range( -30f, 30f);
 
-            Instantiate ( piece, new Vector3 ( positionRandX, positionRandY, 0 ), Quaternion.Euler ( new Vector3 ( 0, 0, rotationRand ) ) );
+            Instantiate(
+                piece,
+                transform.position,
+                Quaternion.Euler( 0, 0, rotationRand )
+                );
         }
-    }
 
-    public void Destroy()
-    {
         Destroy ( gameObject );
     }
 }
