@@ -9,31 +9,26 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementInput;
     private float currentMovementSpeed;
 
+    //PlayerGunAiming
+    private Camera mainCamera;
+
     //PlayerDash
     private bool canDash = true;
     [SerializeField] float dashSpeed, 
                            dashLength, 
                            dashCooldown;
+    private bool canShoot = true;
 
     //PlayerAnimations
-    private Camera mainCamera;
     private Animator playerAnimator;
 
-    //PlayerShooting
-    [SerializeField] float timeBetweenAutomaticShots;
-    private float automaticShotCounter = 0;
-    [SerializeField] float timeBetweenNormalShots;
-    private float normalShotCounter = 0;
-    private float temps;
-    private bool click;
-    private bool canShoot = true;
+    //PlayerGuns
+    [SerializeField] List<WeaponsController> avalibleGuns = new List<WeaponsController>();
+    private int currentGun;
 
     //objects
     [SerializeField] Rigidbody2D playerRigidbody;
     [SerializeField] Transform weaponArm;
-    [SerializeField] GameObject bullet;
-    [SerializeField] Transform firePoint;
-
 
     void Start()
     {
@@ -47,15 +42,39 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        PlayerMovement();
+        PlayerGunSwitching();
 
         PlayerGunAiming();
 
+        PlayerMovement();
+
         PlayerAnimations();
 
-        PlayerShooting();
-
         PlayerDash();
+    }
+
+    private void PlayerGunSwitching()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (avalibleGuns.Count > 0)
+            {
+                currentGun++;
+
+                if (currentGun >= avalibleGuns.Count)
+                {
+                    currentGun = 0;
+                }
+
+                foreach (WeaponsController weapon in avalibleGuns)
+                {
+                    weapon.gameObject.SetActive(false);
+                }
+
+                avalibleGuns[currentGun].gameObject.SetActive(true);
+
+            }
+        }
     }
 
     private void PlayerDash()
@@ -67,6 +86,28 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(DashCooldown());
             StartCoroutine(DashLength());
         }
+    }  
+
+    private void PlayerAnimations()
+    {
+        if (movementInput != Vector2.zero)
+        {
+            playerAnimator.SetBool("isWalking", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("isWalking", false);
+        }
+    }
+
+    private void PlayerMovement()
+    {
+        movementInput.x = Input.GetAxisRaw("Horizontal");
+        movementInput.y = Input.GetAxisRaw("Vertical");
+
+        movementInput.Normalize();
+
+        playerRigidbody.velocity = movementInput * currentMovementSpeed;
     }
 
     private void PlayerGunAiming()
@@ -90,66 +131,6 @@ public class PlayerController : MonoBehaviour
         }
 
         weaponArm.rotation = Quaternion.Euler(0, 0, angle);
-    }
-
-    private void PlayerAnimations()
-    {
-        if (movementInput != Vector2.zero)
-        {
-            playerAnimator.SetBool("isWalking", true);
-        }
-        else
-        {
-            playerAnimator.SetBool("isWalking", false);
-        }
-    }
-
-    private void PlayerShooting()
-    {
-        if (!canShoot) return;
-
-        normalShotCounter -= Time.deltaTime;
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            temps = Time.time;
-            click = true;
-        }
-
-        if (click && (Time.time - temps) > 0.2)
-        {
-            automaticShotCounter -= Time.deltaTime;
-
-            if (automaticShotCounter <= 0)
-            {
-                Instantiate(bullet, firePoint.position, firePoint.rotation);
-                automaticShotCounter = timeBetweenAutomaticShots;
-            }
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            click = false;
-
-            if ((Time.time - temps) < 0.2)
-            {
-                if (normalShotCounter <= 0)
-                {
-                    Instantiate(bullet, firePoint.position, firePoint.rotation);
-                    normalShotCounter = timeBetweenNormalShots;
-                }
-            }
-        }
-    }
-
-    private void PlayerMovement()
-    {
-        movementInput.x = Input.GetAxisRaw("Horizontal");
-        movementInput.y = Input.GetAxisRaw("Vertical");
-
-        movementInput.Normalize();
-
-        playerRigidbody.velocity = movementInput * currentMovementSpeed;
     }
 
     private IEnumerator DashLength()
@@ -185,6 +166,11 @@ public class PlayerController : MonoBehaviour
             return false;
         }
 
+    }
+
+    public bool CanPlayerShoot()
+    {
+        return canShoot;
     }
 
 }

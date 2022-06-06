@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1498881042951040887}
   - component: {fileID: 4626403631084969299}
   m_Layer: 3
-  m_Name: Player bullet
+  m_Name: Assault Rifle Bullet
   m_TagString: Player bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 1588691013
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 138cb5435fbfd604dac9eda2ab55ef38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 182137d6b3e3d5645945db2dd0ba9fc6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300a970ae1d9b1745b74dcd1a3d846f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 7
-  damageAmount: 10
+  bulletSpeed: 9
+  damageAmount: 6
   bulletEffect: {fileID: 5771383018905857875, guid: a7daacdd83cdd7d43a557dff49c244f0, type: 3}
   damageEffect:
   - {fileID: 3359505519873238219, guid: 9fc0f3ca363278147a3250728f063897, type: 3}
