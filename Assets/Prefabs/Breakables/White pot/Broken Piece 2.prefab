@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 3
   haltingFactor: 5
+  lifeTime: 5
+  fadeSpeed: 1
 --- !u!212 &5225862895900776225
 SpriteRenderer:
   m_ObjectHideFlags: 0
