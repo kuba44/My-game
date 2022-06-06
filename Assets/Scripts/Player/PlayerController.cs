@@ -174,4 +174,17 @@ public class PlayerController : MonoBehaviour
         canDash = true;
     }
 
+    public bool IsDashing()
+    {
+        if( currentMovementSpeed == dashSpeed )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
 }
