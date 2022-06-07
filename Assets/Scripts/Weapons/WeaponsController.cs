@@ -15,6 +15,10 @@ public class WeaponsController : MonoBehaviour
     [SerializeField] Sprite weaponsImage;
     [SerializeField] string weaponsName;
 
+    //Camera Shake
+    [SerializeField] float shakeIntensity;
+    [SerializeField] float shakeTime;
+
     //objects
     [SerializeField] GameObject bullet;
     [SerializeField] Transform firePoint;
@@ -51,6 +55,8 @@ public class WeaponsController : MonoBehaviour
                 }
 
             }
+
+            CameraShake.instance.ShakeCamera( shakeIntensity, shakeTime );
 
             shotCounter = timeBetweenShots;
         }
