@@ -297,6 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 871200256615526396}
   - component: {fileID: 871200256615526397}
+  - component: {fileID: 3139424739683104742}
   - component: {fileID: 871200256615525891}
   - component: {fileID: 871200256615525888}
   - component: {fileID: 2020496248}
@@ -350,6 +351,19 @@ MonoBehaviour:
   - {fileID: 370796257133079854}
   playerRigidbody: {fileID: 871200256615525891}
   weaponArm: {fileID: 871200254811899344}
+--- !u!114 &3139424739683104742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871200256615526399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86fb274604ae8324c8084630fef7718f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!50 &871200256615525891
 Rigidbody2D:
   serializedVersion: 4

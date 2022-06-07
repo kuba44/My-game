@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 3
   bulletHealth: 20
+  damageAmount: 5
 --- !u!95 &8695101092235871243
 Animator:
   serializedVersion: 4

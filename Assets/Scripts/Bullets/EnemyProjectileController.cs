@@ -11,6 +11,9 @@ public class EnemyProjectileController : MonoBehaviour
     //bullet health
     [SerializeField] int bulletHealth;
 
+    //damage dealt
+    [SerializeField] int damageAmount;
+
 
     void Start()
     {
@@ -29,10 +32,11 @@ public class EnemyProjectileController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            //deal damage to player
+            collision.GetComponent<PlayerHealthHandler>().DamagePlayer(damageAmount);
 
             Destroy(gameObject);
         }
+        
         else if (collision.CompareTag("Background"))
         {
             Destroy(gameObject);
