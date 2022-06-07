@@ -11,6 +11,10 @@ public class WeaponsController : MonoBehaviour
     //Gun types
     [SerializeField] bool isShotgun;
 
+    //UI
+    [SerializeField] Sprite weaponsImage;
+    [SerializeField] string weaponsName;
+
     //objects
     [SerializeField] GameObject bullet;
     [SerializeField] Transform firePoint;
@@ -25,12 +29,6 @@ public class WeaponsController : MonoBehaviour
     void Update()
     {
         GunShooting();
-
-        if ( Input.GetKey(KeyCode.Tab) )
-        {
-            gameObject.SetActive(true);
-        }
-
     }
 
     private void GunShooting()
@@ -57,6 +55,16 @@ public class WeaponsController : MonoBehaviour
             shotCounter = timeBetweenShots;
         }
 
+    }
+
+    public Sprite GetGunImage()
+    {
+        return weaponsImage;
+    }
+
+    public string GetGunName()
+    {
+        return weaponsName;
     }
 
 }

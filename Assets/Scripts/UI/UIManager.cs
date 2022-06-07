@@ -9,8 +9,11 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] Image imageToFade;
 
+    [SerializeField] Image weaponsImage;
+    [SerializeField] Text weaponsName;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Instance = this;
     }
@@ -24,6 +27,12 @@ public class UIManager : MonoBehaviour
     public void FadeImage()
     {
         imageToFade.GetComponent<Animator>().SetTrigger("StartFade");
+    }
+
+    public void WeaponChangeUI( Sprite gunImage, string gunName)
+    {
+        weaponsImage.sprite = gunImage;
+        weaponsName.text = gunName;
     }
 
 }

@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
 
         currentMovementSpeed = movementSpeed;
+
+        SetWeaponUI();
     }
 
 
@@ -72,9 +74,18 @@ public class PlayerController : MonoBehaviour
                 }
 
                 avalibleGuns[currentGun].gameObject.SetActive(true);
+                SetWeaponUI();
 
             }
         }
+    }
+
+    private void SetWeaponUI()
+    {
+        UIManager.Instance.WeaponChangeUI(
+            avalibleGuns[currentGun].GetGunImage(),
+            avalibleGuns[currentGun].GetGunName()
+            );
     }
 
     private void PlayerDash()
