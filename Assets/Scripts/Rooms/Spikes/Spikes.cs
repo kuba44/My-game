@@ -8,11 +8,11 @@ public class Spikes : MonoBehaviour
 
     private Collider2D player;
 
-    private bool shouldDamagePlayer;
+    private bool shouldDamagePlayer = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ( collision.CompareTag("Player"))
+        if ( collision.CompareTag("Player") )
         {
             GetComponent<Animator>().SetBool("spikesPop", true);
             player = collision;
@@ -22,7 +22,7 @@ public class Spikes : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if ( collision.CompareTag("Player"))
+        if ( collision.CompareTag("Player") )
         {
             GetComponent<Animator>().SetBool("spikesPop", false);
             shouldDamagePlayer = false;
@@ -30,7 +30,7 @@ public class Spikes : MonoBehaviour
     }
     public void damagePlayer()
     {
-        if ( shouldDamagePlayer)
+        if ( shouldDamagePlayer )
         {
             player.GetComponent<PlayerHealthHandler>().DamagePlayer(damageAmount);
         }
