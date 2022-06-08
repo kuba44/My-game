@@ -59,6 +59,8 @@ public class EnemyController : MonoBehaviour
     {
         if (readyToShoot && Vector3.Distance(playerToChase.transform.position, transform.position) < shootingRange)
         {
+            if ( !playerToChase.gameObject.activeInHierarchy ) return;
+
             readyToShoot = false;
             StartCoroutine(FireEnemyProjectile());
         }

@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     public Slider healthSlider;
     public Text healthText;
 
+    [SerializeField] GameObject deathScreen;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -36,6 +38,11 @@ public class UIManager : MonoBehaviour
     {
         weaponsImage.sprite = gunImage;
         weaponsName.text = gunName;
+    }
+
+    public void DeathScreenOn()
+    {
+        deathScreen.SetActive(true);
     }
 
 }

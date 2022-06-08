@@ -32,6 +32,8 @@ public class PlayerHealthHandler : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            UIManager.Instance.DeathScreenOn();
+            
             gameObject.SetActive(false);
         }
     }
