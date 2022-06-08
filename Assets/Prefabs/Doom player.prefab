@@ -342,7 +342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 8
   dashSpeed: 16
-  dashLength: 0.5
+  dashLength: 1
   dashCooldown: 3
   avalibleGuns:
   - {fileID: 7034152122375615389}
@@ -364,6 +364,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  invincibilityTime: 1.5
+  playerSprite: {fileID: 871200254751622541}
 --- !u!50 &871200256615525891
 Rigidbody2D:
   serializedVersion: 4

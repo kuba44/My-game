@@ -94,8 +94,10 @@ public class PlayerController : MonoBehaviour
         {
             playerAnimator.SetTrigger("Dash");
 
-            StartCoroutine(DashCooldown());
-            StartCoroutine(DashLength());
+            StartCoroutine( DashCooldown() );
+            StartCoroutine( DashLength() );
+            StartCoroutine( GetComponent<PlayerHealthHandler>().PlayerFlash( 4 ) );
+            StartCoroutine( GetComponent<PlayerHealthHandler>().InvincibilityTime( dashLength + 0.25f ) );
         }
     }  
 
