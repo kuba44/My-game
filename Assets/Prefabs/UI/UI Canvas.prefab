@@ -584,6 +584,8 @@ MonoBehaviour:
   imageToFade: {fileID: 2266100439604635743}
   weaponsImage: {fileID: 6915696155741961894}
   weaponsName: {fileID: 8082763864936747840}
+  healthSlider: {fileID: 1692688831}
+  healthText: {fileID: 147588150}
 --- !u!1 &2266100439604635730
 GameObject:
   m_ObjectHideFlags: 0

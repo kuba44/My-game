@@ -12,6 +12,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image weaponsImage;
     [SerializeField] Text weaponsName;
 
+    public Slider healthSlider;
+    public Text healthText;
+
     // Start is called before the first frame update
     void Awake()
     {

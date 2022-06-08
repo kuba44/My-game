@@ -11,7 +11,11 @@ public class PlayerHealthHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;   
+        currentHealth = maxHealth;
+
+        UIManager.Instance.healthSlider.maxValue = maxHealth;
+
+        UpdateHealthUI();
     }
 
     // Update is called once per frame
@@ -24,10 +28,19 @@ public class PlayerHealthHandler : MonoBehaviour
     {
         currentHealth -= damageAmount;
 
-        if(currentHealth <= 0)
+        UpdateHealthUI();
+
+        if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
         }
+    }
+
+    private void UpdateHealthUI()
+    {        
+        UIManager.Instance.healthSlider.value = currentHealth;
+
+        UIManager.Instance.healthText.text = currentHealth + " / " + maxHealth;
     }
 
 }
