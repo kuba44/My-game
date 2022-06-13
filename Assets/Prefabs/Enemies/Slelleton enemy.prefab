@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6055842339681689715}
   - component: {fileID: 6055842339681689714}
+  - component: {fileID: 8698543643142529514}
   - component: {fileID: 6055842339681689718}
   - component: {fileID: 6055842339681689709}
   - component: {fileID: 6055842339681689708}
@@ -228,6 +229,22 @@ MonoBehaviour:
   bloodSplatter: {fileID: 6060425443938122186, guid: becdb47034108d84886e52269fc626b7, type: 3}
   enemyProjectile: {fileID: 8695101092235871253, guid: 5bc6ce1a2e91bee48a66e925c5a86807, type: 3}
   firePosition: {fileID: 6055842340316292942}
+--- !u!114 &8698543643142529514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055842339681689711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410d7397793ac1b468fc61c95a37a5c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropsItems: 1
+  itemsDrops:
+  - {fileID: 3288290296318855969, guid: d01ad6a8d7a40e94bbf43b13eebc38f1, type: 3}
+  dropChance: 0.5
 --- !u!61 &6055842339681689718
 BoxCollider2D:
   m_ObjectHideFlags: 0

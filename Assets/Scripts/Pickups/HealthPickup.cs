@@ -14,8 +14,9 @@ public class HealthPickup : MonoBehaviour
             wasPickedUp = true;
 
             collision.GetComponent<PlayerHealthHandler>().HealPlayer(healAmount);
+            
+            Destroy(gameObject);
         }
 
-        Destroy(gameObject);
     }
 }

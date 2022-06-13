@@ -43,6 +43,11 @@ public class Breakables : MonoBehaviour
                 );
         }
 
+        if( GetComponent<ItemDrop>() != null && GetComponent<ItemDrop>().dropsItems )
+        {
+            GetComponent<ItemDrop>().DropItem();
+        }
+
         Destroy ( gameObject );
     }
 }
