@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6460285891201015773
 Transform:
   m_ObjectHideFlags: 0
@@ -130,5 +130,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenShots: 0.5
+  isShotgun: 0
+  weaponsImage: {fileID: 0}
+  weaponsName: 
+  shakeIntensity: 0
+  shakeTime: 0
   bullet: {fileID: 1498881042951040886, guid: 5e577a5b55e721340ac34bc916a935b3, type: 3}
   firePoint: {fileID: 6460285890447779418}

@@ -38,6 +38,14 @@ public class PlayerController : MonoBehaviour
 
         currentMovementSpeed = movementSpeed;
 
+        for (int i = 0; i < avalibleGuns.Count; i++)
+        {
+            if ( avalibleGuns[i].gameObject.activeInHierarchy )
+            {
+                currentGun = i;
+            }
+        }
+
         SetWeaponUI();
     }
 
@@ -184,6 +192,16 @@ public class PlayerController : MonoBehaviour
     public bool CanPlayerShoot()
     {
         return canShoot;
+    }
+
+    public List<WeaponsController> GetAvalibleGuns()
+    {
+        return avalibleGuns;
+    }
+
+    public Transform GetWeaponsArm()
+    {
+        return weaponArm;
     }
 
 }
